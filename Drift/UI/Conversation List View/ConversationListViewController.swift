@@ -84,7 +84,7 @@ class ConversationListViewController: UIViewController {
         tvc.tableView = tableView
         
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "Загружаем чаты")
         refreshControl.addTarget(self, action: #selector(ConversationListViewController.getConversations), for: .valueChanged)
         tvc.refreshControl = refreshControl
         
