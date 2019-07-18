@@ -194,7 +194,7 @@ extension ConversationListViewController: UITableViewDelegate, UITableViewDataSo
                 
             } else {
                 cell.avatarImageView.imageView.image = UIImage(named: "placeholderAvatar", in: Bundle(for: Drift.self), compatibleWith: nil)
-                cell.nameLabel.text = "Неизвестный пользователь"
+                cell.nameLabel.text = "Аноним"
             }
             
             if let preview = conversation.preview, preview != ""{

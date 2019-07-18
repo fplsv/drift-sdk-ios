@@ -143,7 +143,7 @@ class ConversationViewController: UIViewController {
             navVC.navigationBar.barTintColor = DriftDataStore.sharedInstance.generateBackgroundColor()
             navVC.navigationBar.tintColor = DriftDataStore.sharedInstance.generateForegroundColor()
             navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: DriftDataStore.sharedInstance.generateForegroundColor(), NSAttributedString.Key.font: UIFont(name: "AvenirNext-Medium", size: 16)!]
-            navigationItem.title = "Conversation"
+            navigationItem.title = "Чат"
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(ConversationViewController.didOpen), name: UIApplication.willEnterForegroundNotification, object: nil)
