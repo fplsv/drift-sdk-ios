@@ -200,7 +200,7 @@ extension ConversationListViewController: UITableViewDelegate, UITableViewDataSo
             if let preview = conversation.preview, preview != ""{
                 cell.messageLabel.text = preview.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             }else{
-                cell.messageLabel.text = "📎 [Attachment]"
+                cell.messageLabel.text = "📎 [Файл]"
             }
             
             cell.updatedAtLabel.text = dateFormatter.updatedAtStringFromDate(conversation.updatedAt)
