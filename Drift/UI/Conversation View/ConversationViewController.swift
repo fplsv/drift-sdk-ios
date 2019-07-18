@@ -130,9 +130,9 @@ class ConversationViewController: UIViewController {
         conversationInputView.addButton.isEnabled = false
         conversationInputView.textView.font = UIFont(name: "Avenir-Book", size: 15)
         if let organizationName = DriftDataStore.sharedInstance.embed?.organizationName {
-            conversationInputView.textView.placeholder = "Type your message to \(organizationName)..."
+            conversationInputView.textView.placeholder = "Отправьте сообщение \(organizationName)..."
         }else{
-            conversationInputView.textView.placeholder = "Type your message..."
+            conversationInputView.textView.placeholder = "Отправьте сообщение..."
         }
         
         tableView.register(UINib(nibName: "ConversationMessageTableViewCell", bundle: Bundle(for: ConversationMessageTableViewCell.classForCoder())), forCellReuseIdentifier: "ConversationMessageTableViewCell")
@@ -433,11 +433,11 @@ class ConversationViewController: UIViewController {
     }
     
     func failedToCreateConversation(){
-        let alert = UIAlertController(title: "Ошибка", message: "Faield to start conversation", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ошибка", message: "Не удалось начать чат", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Повторить", style: .default, handler: { (_) in
             self.didPressRightButton()
         }))
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true)
     }
     
@@ -563,7 +563,7 @@ extension ConversationViewController : UITableViewDelegate, UITableViewDataSourc
         let message = messages[indexPath.row]
         if message.sendStatus == .Failed{
             let alert = UIAlertController(title:nil, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title:"Повторить попытку", style: .default, handler: { (_) -> Void in
                 message.sendStatus = .Pending
                 self.messages[indexPath.row] = message
@@ -571,7 +571,7 @@ extension ConversationViewController : UITableViewDelegate, UITableViewDataSourc
                 let messageRequest = MessageRequest(body: message.body ?? "", contentType: message.contentType)
                 self.postMessageToConversation(message.conversationId, messageRequest: messageRequest)
             }))
-            alert.addAction(UIAlertAction(title:"Delete Message", style: .destructive, handler: { (_) -> Void in
+            alert.addAction(UIAlertAction(title:"Удалить сообщение", style: .destructive, handler: { (_) -> Void in
                 self.messages.remove(at: self.messages.count-indexPath.row-1)
                 self.tableView!.deleteRows(at: [indexPath as IndexPath], with: .none)
             }))

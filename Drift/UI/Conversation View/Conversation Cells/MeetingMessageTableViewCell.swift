@@ -86,9 +86,9 @@ class MeetingMessageTableViewCell: UITableViewCell {
             
             if let user = user {
                 self?.scheduleMeetingAvatarView.setupForUser(user: user)
-                self?.scheduleTitleLabel.text = "Scheduled a Meeting with " + user.getUserName()
+                self?.scheduleTitleLabel.text = "Запланировать встречу с " + user.getUserName()
             }else{
-                self?.scheduleTitleLabel.text = "Scheduled Meeting"
+                self?.scheduleTitleLabel.text = "Запланировать встречу"
             }
         })
         

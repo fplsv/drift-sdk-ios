@@ -211,7 +211,7 @@ class ScheduleMeetingViewController: UIViewController {
     
     func scheduleMeetingError(){
         SVProgressHUD.dismiss()
-        let alert = UIAlertController(title: "Ошибка", message: "Failed to schedule meeting", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ошибка", message: "Не удалось назначить встречу", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Повторить", style: .default, handler: { [weak self] (_) in
             self?.schedulePressed()
         }))
@@ -221,7 +221,7 @@ class ScheduleMeetingViewController: UIViewController {
     
     func showAPIError(){
         SVProgressHUD.dismiss()
-        let alert = UIAlertController(title: "Ошибка", message: "Failed to get calendar information", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ошибка", message: "Не удалось загрузить календарь", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true)
     }
