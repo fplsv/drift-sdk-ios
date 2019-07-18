@@ -35,8 +35,8 @@ struct Embed: Mappable {
     
     var backgroundColor: String?
     var foregroundColor: String?
-    var welcomeMessage: String = "How can we help out? We are here for you!"
-    var awayMessage: String = "We’re not currently online right now but if you leave a message, we’ll get back to you as soon as possible!"
+    var welcomeMessage: String = "Как мы можем вам помочь?"
+    var awayMessage: String = "Сейчас никого нет онлайн. Ответим ASAP"
 
     var organizationName: String?
     

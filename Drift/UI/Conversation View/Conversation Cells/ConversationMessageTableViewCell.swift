@@ -120,7 +120,7 @@ class ConversationMessageTableViewCell: UITableViewCell, UICollectionViewDelegat
                     self.scheduleMeetingAvatarView.setupForUser(user: user)
                     
                     if let creatorName =  user.name {
-                        self.scheduleMeetingLabel.text = "Schedule a meeting with \(creatorName)"
+                        self.scheduleMeetingLabel.text = "Назначить встречу с  \(creatorName)"
                     }
                 }
             })
@@ -146,14 +146,14 @@ class ConversationMessageTableViewCell: UITableViewCell, UICollectionViewDelegat
                 timeLabel.text = dateFormatter.createdAtStringFromDate(message.createdAt)
             case .Pending:
                 textColor = ColorPalette.navyDark
-                timeLabel.text = "Sending..."
+                timeLabel.text = "Отправка..."
                 timeLabel.textColor = ColorPalette.navyDark
                 avatarView.alpha = 0.7
                 nameLabel.textColor = ColorPalette.navyDark
             case .Failed:
                 nameLabel.textColor = ColorPalette.navyMedium
                 textColor = ColorPalette.navyMedium
-                timeLabel.text = "Failed to send"
+                timeLabel.text = "Не удалось отправить"
                 timeLabel.textColor = ColorPalette.navyMedium
                 avatarView.alpha = 0.7
                 nameLabel.textColor = ColorPalette.navyDark
@@ -197,7 +197,7 @@ class ConversationMessageTableViewCell: UITableViewCell, UICollectionViewDelegat
                 }else if let email = endUser.email {
                     self.nameLabel.text = email
                 }else{
-                    self.nameLabel.text = "You"
+                    self.nameLabel.text = "Вы"
                 }
             }
         }

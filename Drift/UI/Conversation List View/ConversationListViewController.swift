@@ -90,7 +90,7 @@ class ConversationListViewController: UIViewController {
         
         //Ensure that the back button title is not being shown
         navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
-        navigationItem.title = "Conversations"
+        navigationItem.title = "Чаты"
         
         NotificationCenter.default.addObserver(self, selector: #selector(getConversations), name: UIApplication.willEnterForegroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNewMessage), name: .driftOnNewMessageReceived, object: nil)
@@ -194,7 +194,7 @@ extension ConversationListViewController: UITableViewDelegate, UITableViewDataSo
                 
             } else {
                 cell.avatarImageView.imageView.image = UIImage(named: "placeholderAvatar", in: Bundle(for: Drift.self), compatibleWith: nil)
-                cell.nameLabel.text = "Unknown User"
+                cell.nameLabel.text = "Неизвестный пользователь"
             }
             
             if let preview = conversation.preview, preview != ""{

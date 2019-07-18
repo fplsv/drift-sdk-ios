@@ -30,7 +30,7 @@ class DriftDateFormatter: DateFormatter {
         if (Calendar.current as NSCalendar).component(.day, from: date) != (Calendar.current as NSCalendar).component(.day, from: now){
             dateFormat = "MMMM d"
         }else{
-            return "Today"
+            return "Сегодня"
         }
         return string(from: date)
     }

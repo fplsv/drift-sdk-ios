@@ -57,10 +57,10 @@ class NewMessageView: CampaignView {
         if otherConversations.isEmpty {
             //Setup for latest message in conversation
             notificationContainer.isHidden = true
-            titleLabel.text = "New Message"
+            titleLabel.text = "Новые сообщение"
             
             if message.attachmentIds.count > 0{
-                infoLabel.text = "📎 [Attachment]"
+                infoLabel.text = "📎 [Файл]"
             }else{
                 do {
                     let htmlStringData = (message?.body ?? "").data(using: String.Encoding.utf8)!
@@ -83,8 +83,8 @@ class NewMessageView: CampaignView {
             notificationContainer.isHidden = false
             
             
-            titleLabel.text = "New Messages"
-            infoLabel.text = "Click below to open"
+            titleLabel.text = "Новые сообщения"
+            infoLabel.text = "Нажмите, чтобы открыть"
             
             userImageView.isHidden = true
         }
@@ -95,7 +95,7 @@ class NewMessageView: CampaignView {
                     if let avatar = user.avatarURL, let url = URL(string: avatar) {
                         self.userImageView.af_setImage(withURL: url)
                     }
-                    self.titleLabel.text = user.name ?? "New Message"
+                    self.titleLabel.text = user.name ?? "Новые сообщения"
                 }
             })
         }

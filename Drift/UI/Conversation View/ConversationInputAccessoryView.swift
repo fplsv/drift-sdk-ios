@@ -78,7 +78,7 @@ class ConversationInputAccessoryView: UIView {
     
     var sendButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Send", for: .normal)
+        button.setTitle("Отправить", for: .normal)
         button.addTarget(self, action: #selector(didPressSend), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isEnabled = false

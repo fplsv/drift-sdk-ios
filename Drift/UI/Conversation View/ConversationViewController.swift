@@ -314,7 +314,7 @@ class ConversationViewController: UIViewController {
                 
                 let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
                 label.textAlignment = .center
-                label.text = "We're ⚡️ by Drift"
+                label.text = "Чат ⚡️ от Drift"
                 label.font = UIFont(name: "Avenir-Book", size: 14)
                 label.textColor = ColorPalette.grayColor
                 label.transform = tableView.transform
@@ -433,8 +433,8 @@ class ConversationViewController: UIViewController {
     }
     
     func failedToCreateConversation(){
-        let alert = UIAlertController(title: "Error", message: "Faield to start conversation", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (_) in
+        let alert = UIAlertController(title: "Ошибка", message: "Faield to start conversation", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Повторить", style: .default, handler: { (_) in
             self.didPressRightButton()
         }))
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -486,17 +486,17 @@ extension ConversationViewController: ConversationInputAccessoryViewDelegate {
         
         imagePicker.delegate = self
         
-        uploadController.addAction(UIAlertAction(title: "Take a Photo", style: .default, handler: { (UIAlertAction) in
+        uploadController.addAction(UIAlertAction(title: "Камера", style: .default, handler: { (UIAlertAction) in
             self.imagePicker.sourceType = .camera
             self.present(self.imagePicker, animated: true, completion: nil)
         }))
         
-        uploadController.addAction(UIAlertAction(title: "Choose From Library", style: .default, handler: { (UIAlertAction) in
+        uploadController.addAction(UIAlertAction(title: "Фотогалерея", style: .default, handler: { (UIAlertAction) in
             self.imagePicker.sourceType = .photoLibrary
             self.present(self.imagePicker, animated: true, completion: nil)
         }))
         
-        uploadController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        uploadController.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: nil))
         present(uploadController, animated: true, completion: nil)
     }
     
@@ -564,7 +564,7 @@ extension ConversationViewController : UITableViewDelegate, UITableViewDataSourc
         if message.sendStatus == .Failed{
             let alert = UIAlertController(title:nil, message: nil, preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title:"Retry Send", style: .default, handler: { (_) -> Void in
+            alert.addAction(UIAlertAction(title:"Повторить попытку", style: .default, handler: { (_) -> Void in
                 message.sendStatus = .Pending
                 self.messages[indexPath.row] = message
                 self.tableView!.reloadRows(at: [indexPath], with: .none)
@@ -689,7 +689,7 @@ extension ConversationViewController: ConversationCellDelegate {
                     }
                 }
             case .failure:
-                let alert = UIAlertController(title: "Unable to preview file", message: "This file cannot be previewed", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "Не удалось загрузить превью", message: "Для этого файла нет превью", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 LoggerManager.log("Unable to preview file with mimeType: \(attachment.mimeType)")
